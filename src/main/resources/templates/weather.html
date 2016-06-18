@@ -22,9 +22,6 @@
         <p th:text="'Sunrise : ' + ${weatherDataSummary.sunrise}" />
         <p th:text="'Sunset : ' + ${weatherDataSummary.sunset}" />
     </div>
-    <div th:if="${weatherDataSummary == null}">
-        <p th:text="'Unable to find the weather data'" />
-    </div>
 
 </body>
 </html>
