@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Weather Service</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <form action="weather" method="post">
+        Please select the city
+        <select name="city">
+            <option th:each="cityname : ${cities}" th:value="${cityname}" th:text="${cityname}" th:selected="${weatherDataSummary != null and cityname == weatherDataSummary.city}"></option>
+        </select>
+        <input type="submit" value="Submit"/>
+
+    </form>
+
+    <div th:if="${weatherDataSummary != null}">
+        <p th:text="'Date : ' + ${weatherDataSummary.date}" />
+        <p th:text="'City : ' + ${weatherDataSummary.city}" />
+        <p th:text="'Description : ' + ${weatherDataSummary.description} + '!'" />
+        <p th:text="'Temperature : ' + ${weatherDataSummary.tempF} + 'F, ' + ${weatherDataSummary.tempC} + 'C'" />
+        <p th:text="'Sunrise : ' + ${weatherDataSummary.sunrise}" />
+        <p th:text="'Sunset : ' + ${weatherDataSummary.sunset}" />
+    </div>
+    <div th:if="${weatherDataSummary == null}">
+        <p th:text="'Unable to find the weather data'" />
+    </div>
+
+</body>
+</html>
