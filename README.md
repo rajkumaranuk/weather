@@ -6,5 +6,6 @@
 TODO
 * ajax form submission
 * form validation
+* displaying error on the page
 * junit testing
 * mocking the extenal endpoint (eg: wiremock)
